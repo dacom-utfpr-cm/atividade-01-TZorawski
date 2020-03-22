@@ -11,21 +11,13 @@ public class ThreadQ4 extends Thread {
     @Override
     public void run () {
         System.out.println("Thread iniciando...");
-        try {
-            Thread.sleep(10000); // Dormindo
-        } catch (InterruptedException ex) {
-            System.out.println("A thread foi interrompida.");
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException ex1) {
-                // nada
-            }
+        int j = 0;
+        for (int i = 0; i < 50000; i++) {
+            System.out.print(" ");
         }
         
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException ex) {
-            System.out.println("A thread foi interrompida novamente.");
+        if (Thread.interrupted()) {
+            System.out.println("Thread interrompida.");
         }
         
         System.out.println("Thread finalizando...");

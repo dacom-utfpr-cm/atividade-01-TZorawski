@@ -19,11 +19,15 @@ public class Main {
         // Verifica estado das threads
         new Thread(
             () -> {
+                t1.interrupt();
+                t2.interrupt();
+                t3.interrupt();
+                
                 while (t1.isAlive() || t2.isAlive() || t3.isAlive()) {
                     if (t1.isInterrupted()) {
                         System.out.println("T1 interrompida");
                     }
-                    System.out.println(t1.isInterrupted());
+
                     if (t2.isInterrupted()) {
                         System.out.println("T2 interrompida");
                     }
@@ -35,8 +39,6 @@ public class Main {
             }
         ).start();
         
-        t1.interrupt();
-        t2.interrupt();
-        t3.interrupt();
+        
     }
 }
